@@ -26,7 +26,7 @@ Os requisitos são divididos entre o ambiente de execução (cliente final) e o 
 
 * **SDK:** .NET 8 SDK.
 * **IDE:** Visual Studio 2022 (Community Edition ou superior).
-* **Extensão do Visual Studio:** [Microsoft Visual Studio Installer Projects 2022](https://marketplace.visualstudio.com/items?itemName=MicrosoftVisualStudioInstallerProjects.MicrosoftVisualStudioInstallerProjects2022).
+* **Extensão do Visual Studio:** Microsoft Visual Studio Installer Projects.
 * **Bibliotecas do Fabricante:** Os arquivos `CIDBio.dll` (wrapper .NET) e `libcidbio.dll` (biblioteca nativa) devem estar presentes na raiz do projeto `BiometricApi`.
 
 ## 3. Estrutura do Projeto
