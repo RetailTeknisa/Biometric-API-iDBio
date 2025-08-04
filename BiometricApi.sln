@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiometricApi", "BiometricApi.csproj", "{93DDCD79-28F1-89EA-8C68-6D9043526555}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BiometricApiInstaller", "..\Users\Teknisa Sotware\source\repos\BiometricApiInstaller\BiometricApiInstaller\BiometricApiInstaller.vdproj", "{9E586046-CEF8-D354-4451-44444686D404}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93DDCD79-28F1-89EA-8C68-6D9043526555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93DDCD79-28F1-89EA-8C68-6D9043526555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93DDCD79-28F1-89EA-8C68-6D9043526555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93DDCD79-28F1-89EA-8C68-6D9043526555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E586046-CEF8-D354-4451-44444686D404}.Debug|Any CPU.ActiveCfg = Debug
+		{9E586046-CEF8-D354-4451-44444686D404}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F22F4279-67CC-48BC-B20C-EDC9BA359B7A}
+	EndGlobalSection
+EndGlobal
