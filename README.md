@@ -130,31 +130,25 @@ Aqui definimos quais arquivos serão copiados para a máquina do cliente.
     * No Windows Explorer, navegue até a sua pasta de publicação (ex: `...\BiometricApi\bin\Release\net8.0\win-x86\publish\`).
     * Selecione **todos os arquivos e pastas** dentro dela (Ctrl + A).
     * **Arraste e solte** todos esses arquivos diretamente sobre o nome **"Pasta do Aplicativo" (Application Folder)** na janela "Sistema de Arquivos" do Visual Studio.
-3.  **Adicionar o `powershell.exe`:**
-    * Ainda na janela "Sistema de Arquivos", clique com o botão direito em **"Pasta do Aplicativo"** e selecione `Adicionar > Arquivo...`.
-    * Navegue até `C:\Windows\System32\WindowsPowerShell\v1.0\`.
-    * Selecione o arquivo `powershell.exe` e clique em Abrir.
+3.  **Adicionar arquivos `vbs`:
+    * No Windows Explorer, navegue até a pasta raíz da aplicação (ex: `C:\..._seu_projeto_\BiometricApi`).
+    * Selecione os arquivos `install-service.vbs` e `uninstall-service.vbs`.
+    * Arraste e solte esses arquivos na "Pasta do Aplicativo" no Visual Studio.
 
-#### C. Configurar as Ações Personalizadas (Instalação Automática)
+#### C. Configurar as Ações Personalizadas (Instalação Automática via VBScript)
 
-Esta configuração fará com que o serviço seja instalado e desinstalado automaticamente, sem a necessidade de scripts `.bat`.
+Esta configuração utiliza scripts VBScript para garantir que a instalação e desinstalação do serviço ocorram de forma automática, silenciosa e com os privilégios de administrador necessários, contornando as limitações do instalador.
 
-1.  Clique com o botão direito no projeto `BiometricApi.Installer` e vá em `Exibir > Ações Personalizadas`.
+1.  No Gerenciador de Soluções, clique com o botão direito no projeto `BiometricApi.Installer` e vá em `Exibir > Ações Personalizadas`.
 2.  **Ação de Instalação (`Commit`):**
-    * Clique com o botão direito em **`Commit`**, selecione `Adicionar Ação Personalizada...`.
-    * Na janela, navegue até a `SystemFolder` e selecione **`powershell.exe`**.
-    * Selecione a ação `powershell.exe` recém-adicionada e pressione **F4** para abrir suas **Propriedades**.
-    * No campo **`Arguments`**, cole o seguinte comando:
-      ```
-      -WindowStyle Hidden -ExecutionPolicy Bypass -Command "& { Start-Process -FilePath \"[TARGETDIR]install-service.bat\" -Verb RunAs -Wait -WindowStyle Hidden }"
-      ```
-      * Este comando executa o script de instalação do serviço em segundo plano, garantindo que o usuário não veja janelas de console durante a instalação.
+    * A fase `Commit` garante que a ação só seja executada após todos os arquivos serem copiados com sucesso.
+    * Clique com o botão direito na pasta **`Commit`** e selecione `Adicionar Ação Personalizada...`.
+    * Na janela que abrir, dê um duplo clique em **"Pasta do Aplicativo" (Application Folder)**.
+    * Selecione o script **`install.vbs`** e clique em OK.
+
 3.  **Ação de Desinstalação (`Uninstall`):**
-    * Clique com o botão direito em **`Uninstall`**, adicione uma Ação Personalizada e selecione **`powershell.exe`** da `SystemFolder`.
-    * Nas **Propriedades (F4)** desta ação, configure o campo **`Arguments`**:
-      ```
-      -WindowStyle Hidden -ExecutionPolicy Bypass -Command "& { Start-Process -FilePath \"[TARGETDIR]uninstall-service.bat\" -Verb RunAs -Wait -WindowStyle Hidden }"
-      ```
+    * Clique com o botão direito na pasta **`Uninstall`** e selecione `Adicionar Ação Personalizada...`.
+    * Selecione o script **`uninstall.vbs`** e clique em OK.
 
 ### 5.5. Etapa 4: Gerar o Instalador `.msi` Final
 
